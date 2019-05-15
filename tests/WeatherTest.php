@@ -28,7 +28,7 @@ class WeatherTest extends TestCase
                 'city' => '深圳',
                 'output' => 'json',
                 'extensions' => 'base',
-            ]
+            ],
         ])->andReturn($response);
 
         // 将 `getHttpClient` 方法替换为上面创建的 http client 为返回值的模拟方法。
@@ -37,7 +37,6 @@ class WeatherTest extends TestCase
 
         // 然后调用 `getWeather` 方法，并断言返回值为模拟的返回值。
         $this->assertSame(['success' => true], $w->getWeather('深圳'));
-
 
         // xml
         $response = new Response(200, [], '<hello>content</hello>');
@@ -117,7 +116,8 @@ class WeatherTest extends TestCase
     }
 
     /**
-     * 检查 $type 参数
+     * 检查 $type 参数.
+     *
      * @throws InvalidArgumentException
      * @throws \Lihq1403\Weather\Exceptions\HttpException
      */
@@ -136,7 +136,8 @@ class WeatherTest extends TestCase
     }
 
     /**
-     * 检查 $format 参数
+     * 检查 $format 参数.
+     *
      * @throws InvalidArgumentException
      * @throws \Lihq1403\Weather\Exceptions\HttpException
      */
