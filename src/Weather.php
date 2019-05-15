@@ -1,7 +1,15 @@
 <?php
 
-namespace Lihq1403\Weather;
+/*
+ * This file is part of the lihq1403/weather.
+ *
+ * (c) lihq1403<lihaiqing1994@163.com>
+ *
+ * This source file is subject to the MIT license that is bundled
+ * with this source code in the file LICENSE.
+ */
 
+namespace Lihq1403\Weather;
 
 use GuzzleHttp\Client;
 use Lihq1403\Weather\Exceptions\HttpException;
@@ -10,10 +18,12 @@ use Lihq1403\Weather\Exceptions\InvalidArgumentException;
 class Weather
 {
     protected $key;
+
     protected $guzzleOptions = [];
 
     /**
      * Weather constructor.
+     *
      * @param string $key
      */
     public function __construct(string $key)
@@ -22,10 +32,13 @@ class Weather
     }
 
     /**
-     * 获取实时天气
+     * 获取实时天气.
+     *
      * @param $city
      * @param string $format
+     *
      * @return mixed|string
+     *
      * @throws HttpException
      * @throws InvalidArgumentException
      */
@@ -35,10 +48,13 @@ class Weather
     }
 
     /**
-     * 获取天气预报
+     * 获取天气预报.
+     *
      * @param $city
      * @param string $format
+     *
      * @return mixed|string
+     *
      * @throws HttpException
      * @throws InvalidArgumentException
      */
@@ -51,7 +67,9 @@ class Weather
      * @param $city
      * @param string $type
      * @param string $format
+     *
      * @return mixed|string
+     *
      * @throws HttpException
      * @throws InvalidArgumentException
      */
@@ -73,7 +91,7 @@ class Weather
             'key' => $this->key,
             'city' => $city,
             'output' => $format,
-            'extensions' =>  $type,
+            'extensions' => $type,
         ]);
 
         try {
@@ -91,7 +109,6 @@ class Weather
             // 并将调用异常作为 $previousException 传入。
             throw new HttpException($e->getMessage(), $e->getCode(), $e);
         }
-
     }
 
     /**
@@ -109,6 +126,4 @@ class Weather
     {
         $this->guzzleOptions = $options;
     }
-
-
 }
