@@ -1,0 +1,22 @@
+{
+    "name": "lihq1403\/weather",
+    "description": "weather query",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "lihq1403",
+            "email": "lihaiqing1994@163.com"
+        }
+    ],
+    "require": {
+        "php": ">=7.2.0",
+        "guzzlehttp/guzzle": "^6.3",
+        "phpunit/phpunit": "^8.1",
+        "mockery/mockery": "^1.2"
+    },
+    "autoload": {
+        "psr-4": {
+            "Lihq1403\\Weather\\": "src"
+        }
+    }
+}
